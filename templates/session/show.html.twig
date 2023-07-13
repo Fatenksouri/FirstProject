@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+    <h1>Session</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ session.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ session.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Libelles</th>
+                <td>{{ session.libelles }}</td>
+            </tr>
+            <tr>
+                <th>Despriptions</th>
+                <td>{{ session.despriptions }}</td>
+            </tr>
+            <tr>
+                <th>Datedebut</th>
+                <td>{{ session.datedebut ? session.datedebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{{ session.datefin ? session.datefin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Createsds</th>
+                <td>{{ session.createsds ? session.createsds|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updateds</th>
+                <td>{{ session.updateds ? session.updateds|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Enableds</th>
+                <td>{{ session.enableds ? session.enableds|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_session_index') }}">back to list</a>
+
+    <a href="{{ path('app_session_edit', {'id': session.id}) }}">edit</a>
+
+    {{ include('session/_delete_form.html.twig') }}
+{% endblock %}

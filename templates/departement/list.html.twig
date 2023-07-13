@@ -1,0 +1,21 @@
+<h1>List Departement</h1>
+<a href="{{ path('app_adddepartement') }}">add departement</a>
+<br>
+{% if  tabDepartement is empty %}
+    <h5 style="color: red">Tab vide</h5>
+{% else %}
+    {% for d in tabDepartement %}
+        id: {{ d.id }}
+        libelle: {{ d.libelle|upper }}
+        description: {{ d.description }}
+        created: {{ d.createdat|date }}
+        updated: {{ d.updateat|date }}
+        enables: {{ d.enabled }}
+        <a href="{{path('updateForm_departement',{'id':d.id}) }})}}">Update</a>
+        <a href="{{path('removeForm_departement',{'id':d.id}) }})}}">Delete</a>
+
+        <br>
+    {% endfor %}
+{% endif %}
+Nbr departements: {{ tabDepartement|length }}
+
